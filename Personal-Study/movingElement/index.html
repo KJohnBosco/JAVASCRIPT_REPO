@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving an element</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #ground {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        background-image: linear-gradient(
+          to right,
+          lime,
+          rgba(0, 255, 0, 0.678)
+        );
+      }
+
+      #element {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background-image: linear-gradient(to right, red, orange, orangered);
+      }
+
+      .wall {
+        width: 200px;
+        height: 200px;
+        background-color: #000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <section id="ground">
+      <div id="element"></div>
+      <div class="wall"></div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

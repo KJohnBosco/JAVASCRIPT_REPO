@@ -275,4 +275,67 @@ console.log(statement);
 console.log(statement.replace("isn't", "is"));
 console.log(statement.replaceAll("door", "window"));
 console.log(statement.replace(/door/g, "window"));
+
+// Default parameters
+const printRectangle = function (width = 10, height = 3) {
+  for (let rows = 1; rows <= height; rows++) {
+    let char = "";
+    console.log("\n");
+
+    for (let columns = 0; columns <= width; columns++) {
+      char = char + "🎉";
+    }
+
+    console.log(char.trim());
+  }
+};
+
+console.log("Using default parameters");
+printRectangle();
+
+console.log("User provided values");
+printRectangle(15, 4);
+
+// Passing Values and references
+const user = {
+  name: "",
+  email: "",
+  age: 1,
+  users: [],
+
+  User(Name, Email, Age) {
+    this.name = Name.toLowerCase();
+    this.email = Email.toLowerCase();
+    this.age = Age;
+
+    return { userName: this.name, UserEmail: this.email, userAge: this.age };
+  },
+
+  addUser(userId, user) {
+    this.users.push([userId, user]);
+  },
+};
+
+// OPT1 - Add User
+user.addUser("U001", user.User("John Bosco Kisomba", "hello@john.com", 22));
+user.addUser("U002", user.User("John Bosco", "hello@johnbosco.com", 21));
+
+console.log(...user.users);
 */
+
+// Function Callback,first class & higher order functions
+const addUser = function (name) {
+  return `${name} is added into the system`;
+};
+
+const removeUser = function (name) {
+  return `${name} is removed from the system`;
+};
+
+const userAction = function (name, func) {
+  console.log("Process Successful");
+  console.log(`User ${func(name)}`);
+};
+
+userAction("Johnson", addUser);
+userAction("Johnson", removeUser);
